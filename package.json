@@ -1,0 +1,30 @@
+{
+  "name": "fake_project",
+  "version": "1.0.0",
+  "description": "social",
+  "main": "index.js",
+  "scripts": {
+    "front": "cls && nodemon index.js"
+  },
+  "keywords": [
+    "art",
+    "blog",
+    "k\u001b[23life",
+    "beauty",
+    "events",
+    "sao",
+    "paulo"
+  ],
+  "author": "Jhony Wesley Terra",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

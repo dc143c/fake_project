@@ -1,0 +1,94 @@
+<% include('./partials/navbar') %>
+<% include('./partials/footer') %>
+<link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="semantic/dist/semantic.min.js">
+</script>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Montserrat', sans-serif;
+        background-color: #FCFCFC;
+    } 
+</style>
+<link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="semantic/dist/semantic.min.js">
+</script>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Montserrat', sans-serif;
+        background-color: #FCFCFC;
+    }
+</style>
+<body>
+    <%- include('./partials/navbar') %>
+    <div class="ui grid" style="margin-top: 8%;">
+        <div class="three wide column"></div>
+        <div class="ui ten wide column">
+            <div class='ui grid'>
+                <div class="four wide column">
+                    <div class="ui vertical menu">
+                        <a class="active teal item">
+                          Meu perfil
+                          <div class="ui teal left pointing label">1</div>
+                        </a>
+                        <a class="item">
+                          Feed
+                          <div class="ui label">51</div>
+                        </a>
+                        <a class="item">
+                          Mensagens
+                          <div class="ui label">1</div>
+                        </a>
+                        <a class="item">
+                          Amigos
+                          <div class="ui label">1</div>
+                        </a>
+                        <a class="item">
+                          Comunidades
+                          <div class="ui label">1</div>
+                        </a>
+                        <a class="item">
+                          Configurações
+                          <div class="ui red label">2</div>
+                        </a>
+                      </div>
+                </div>
+                <div class="twelve wide column">
+                    <div class='ui card' style='width:100%; height: 100%;'>
+                        <div class='ui segment' style="padding: 2% 2% 0% 2%">
+                            <div class="ui form">
+                                <div class="field">
+                                    <textarea cols='40' rows='10' placeholder="Quer contar algo pra galera?" style='width: 90%; height: 30%; resize: none;'></textarea>
+                                    <img class="ui left floated avatar image" style='width: 45px; height: 45px; margin-top: 1.5%;' src="https://semantic-ui.com/images/avatar2/large/kristy.png">
+                                </div>    
+                                <button class='ui right floated button' style='margin-top: 2%;'>
+                                    Enviar
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class='ui'>
+                            <h2>Seus amigos postaram:</h2>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+        <div class="three wide column"></div>
+      </div>
+
+      <%- include('./partials/footer') %>
+    </div>
+</body>
+</body>

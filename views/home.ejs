@@ -1,0 +1,136 @@
+<% include('./partials/navbar') %>
+<% include('./partials/footer') %>
+<link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="semantic/dist/semantic.min.js">
+</script>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Montserrat', sans-serif;
+        background-color: #FCFCFC;
+    }
+    
+</style>
+<body>
+    <%- include('./partials/navbar') %>
+    <div class="ui grid" style="margin-top: 8%;">
+        <div class="three wide column"></div>
+        <div class="ui ten wide column">
+            <div class='ui grid'>
+                <div class="eight wide column">
+                    <h3>Olá, forasteiro!</h3>
+                    <p style='font-size: 12px;'>Junte-se a milhares de usuários em todo o Brasil no RPG mais interativo de todos os tempos!</p>
+                    <div style="display: flex;justify-content: center;height: 5%;width: 100%;">
+                        <img src="/assets/party.png">
+                        <img src="/assets/clap.png">
+                        <img src="/assets/confetti.png">
+                    </div>
+                    <p style='font-size: 12px; margin-top: 2%'>Deixe sua imaginação fluir e interaja com seus amigos/família!</p>
+                </div>
+                <div class="eight wide column">
+                    <form class="ui segment form">    
+                        <div style='text-align: center; margin-bottom: 1%;'>
+                        <h3>Entre</h3>
+                        <p>Insira seus dados e aproveite!</p>
+                        </div>
+                        <div class="field">
+                          <input type="text" name="first-name" placeholder="Usuário">
+                        </div>
+                        <div class="field">
+                          <input type="text" name="last-name" placeholder="Senha">
+                        </div>
+                        
+                        <div style="display: flex; flex-direction: row;">
+                            <button class="ui button" type="submit" style='background-color: #5EB1BF; color: white'>Entrar</button>
+                            <p style="font-size: 12px;width: 100%;margin: 3%;"><a href="/" style="color: #5EB1BF; margin-left: 1%; width: 100%;">Esqueceu a senha?</a></p>
+                          </div>
+                    </form>
+                      
+                      <form class="ui segment form">
+                          <div style='text-align: center;'>
+                            <h3>Sua primeira vez no Fake?</h3>
+                            <p>Crie sua conta instantâneamente!</p>
+                          </div>
+                        <div class="field" style='margin-top: 5%;'>
+                          <input type="text" name="first-name" placeholder="Nome">
+                        </div>
+                        <div class="field">
+                          <input type="text" name="last-name" placeholder="Sobrenome">
+                        </div>
+                          <p> Sua data de nascimento </p>
+                          <div class="three fields">                        
+                            <div class="field">
+                                <input type="number" name="dia" maxlength="2" placeholder="Dia">
+                              </div>
+                            <div class="field">
+                              <select class="ui fluid search dropdown" name="Montserrat">
+                                <option value="">Mês</option>
+                                <option value="1">Janeiro</option>
+                                <option value="2">Fevereiro</option>
+                                <option value="3">Março</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Maio</option>
+                                <option value="6">Junho</option>
+                                <option value="7">Julho</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Setembro</option>
+                                <option value="10">Outubro</option>
+                                <option value="11">Novembro</option>
+                                <option value="12">Dezembro</option>
+                              </select>
+                            </div>
+                            <div class="field">
+                              <input type="number" name="ano" maxlength="4" placeholder="Ano">
+                            </div>
+                          </div>
+                          <p> Seu gênero </p>
+                          <div class='four inline fields'>
+                            <div class="inline field">
+                                <div class="ui checkbox">
+                                  <input type="checkbox" tabindex="0" class="hidden">
+                                <label style="font-size: 12px; color: #999;"> Trans </label>
+                                </div>
+                              </div>
+                              <div class="inline field">
+                                <div class="ui checkbox">
+                                  <input type="checkbox" tabindex="0" class="hidden">
+                                  <label style="font-size: 12px; color: #999;"> Mulher</label>
+                                </div>
+                              </div>
+                              <div class="inline field">
+                                <div class="ui checkbox">
+                                  <input type="checkbox" tabindex="0" class="hidden">
+                                  <label style="font-size: 12px; color: #999;"> Homem </label>
+                                </div>
+                              </div>
+                              <div class="inline field">
+                                <div class="ui checkbox">
+                                  <input type="checkbox" tabindex="0" class="hidden">
+                                  <label style="font-size: 12px; color: #999;"> Neutro </label>
+                                </div>
+                              </div>
+                          </div>
+                          <div class='ui inline' style="margin-top: 3%;">
+                            <button class="ui button" type="submit" style='background-color: #5EB1BF; color: white; width: 100%;'>Criar</button>
+                          </div>
+                        </form>
+
+                    <div class='ui segment' style="text-align: center;">
+                        <p>Criando sua conta você poderá usufruir de todos os nossos recursos</p>
+                        <p><a href="/index" style='text-decoration: none; color: #9999; font-weight: 700;'>Saiba mais</a></p>
+                    </div>
+                </div>    
+            </div>
+        </div>
+        <div class="three wide column"></div>
+      </div>
+
+
+      <%- include('./partials/footer') %>
+    </div>
+</body>

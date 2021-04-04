@@ -1,0 +1,8 @@
+    <div class="ui grid">
+        <div class="four wide column" style='background: chartreuse;'></div>
+        <div class="ui eight wide column" style="background-color: black;">
+            <div class="column" style="background-color: tomato;"></div>
+            <div class="column" style="background-color: purple;"></div>
+        </div>
+        <div class="four wide column" style="background-color: tomato;"></div>
+      </div>
