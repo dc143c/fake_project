@@ -24,15 +24,6 @@ app.use(require('./rotas/rotas_post.js'))
 
 var porta = 80
 
-app.get('/', function (req, res) {
-    res.render('index')
-    return
-})
-
-app.get('/home', function (req, res) {
-    res.render('home')
-    return
-})
 app.listen(porta, function (err) {
     if (err) console.log(err);
     console.log("Online on Port = " + porta);

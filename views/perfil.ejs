@@ -1,0 +1,224 @@
+<% include('./partials/navbar') %>
+<% include('./partials/footer') %>
+<% include('./partials/header') %>
+<% include('./partials/chat') %>
+<%- include('./partials/header') %>
+<% include('./partials/barra_lateral') %>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Montserrat', sans-serif;
+        background-color: #f0f0f0;
+    }
+</style>
+<body>
+<%- include('./partials/navbar') %>
+<div class="ui grid" style="margin-top: 5%;">
+    <div class="three wide column"></div>
+    <div class="ui ten wide column">
+        <%- include('./partials/barra_lateral') %>
+        <div style='width:68%;float: right;'>
+            <div class='ui' style="width: 100%;">
+                <div class='ui segment grid' style="padding: 2% 2% 2% 2%; margin-top: 0">
+                    <div class="four wide column image">
+                        <img class="ui image" src="https://semantic-ui.com/images/avatar2/large/kristy.png" style="border-radius: 5%">
+                        <button class="ui icon button" style="margin: 10% 1% 1% 1%; width: 100%">
+                            <i class="icon user"></i>
+                            Adicionar
+                        </button>
+                        <button class="ui icon button" style="margin: 10% 1% 1% 1%; background-color: #f4e04d; width: 100%">
+                            <i class="envelope icon"></i>
+                            Mensagem
+                        </button>
+                        <button class="ui icon button" style="margin: 10% 1% 1% 1%; background-color: red; width: 100%">
+                            <i class="ban icon"></i>
+                            Bloquear
+                        </button>
+                    </div>
+                    <div class="twelve wide column">
+                        <div class="content" style="float: right">
+                            <i class="poo icon" style="color: saddlebrown" title="Not good"></i>
+                            <i class="mobile alternate icon"></i> há 15 min
+                        </div>
+                        <div class="content">
+                            <div class="header" style="font-size: 18px">Matt Giampietro</div>
+                            <div class="meta">
+                                <a>Do you want to play a game?</a>
+                            </div>
+                            <div class="description">
+                                <table class="ui selectable very basic table">
+                                    <tbody>
+                                    <tr>
+                                        <td>Trabalho</td>
+                                        <td>Hospital Santa Cruz de Jesus</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cidade</td>
+                                        <td>São Francisco</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Idade</td>
+                                        <td>27 anos</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Raça</td>
+                                        <td>Humana</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Habilidades</td>
+                                        <td>Telepatia</td>
+                                    </tr>
+                                    <tr>
+                                        <td>História</td>
+                                        <td class="warning">Clique e veja</td>
+                                    </tr>
+                                    <tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='ui card' style="margin-top: 0; width: 100%; padding: 2%">
+                    <div class="ui form">
+                        <div class="field">
+                            <textarea cols='40' rows='4' placeholder="Que tal deixar um depoimento?" style='width: 90%; height: 10%; resize: none;'></textarea>
+                            <img class="ui avatar image" style='width: 45px; height: 45px; margin-top: 1.5%; margin-right: 1.5%; float: left' src="https://semantic-ui.com/images/avatar2/large/kristy.png">
+                        </div>
+                        <button class='ui button' style='margin: 1% 0 2% 0;float:right'>
+                            Enviar
+                        </button>
+                    </div>
+                </div>
+                <div class='ui card' style="margin-top: 0; width: 100%">
+                    <div class="content">
+                        <div class="meta" style="float:right; margin-top: 1%">14h</div>
+                        <img class="ui avatar image" src="https://semantic-ui.com/images/avatar2/large/kristy.png"> Matt Giampietro
+                    </div>
+                    <div class="content">
+                        <p>
+                            Lorem ipsum lorem apestum lariopsem yumenkatumm silican matorias
+                        </p>
+                    </div>
+                    <div class="content">
+                                <span class="right floated">
+                                  <i class="heart outline like icon"></i>
+                                  17 likes
+                                </span>
+                        <i class="comment icon"></i>
+                        4 comments
+                    </div>
+                    <div class="extra content">
+                        <div class="ui large transparent left icon input">
+                            <i class="heart outline icon"></i>
+                            <input type="text" placeholder="Add Comment...">
+                        </div>
+                    </div>
+                </div>
+                <div class='ui card' style="margin-top: 0; width: 100%">
+                    <div class="content">
+                        <div class="meta" style="float:right; margin-top: 1%">14h</div>
+                        <img class="ui avatar image" src="https://semantic-ui.com/images/avatar2/large/kristy.png"> Matt Giampietro
+                    </div>
+                    <div class="image">
+                        <img src="https://fomantic-ui.com/images/wireframe/image.png" style="width: 100%">
+                    </div>
+                    <div class="content">
+                                <span class="right floated">
+                                  <i class="heart outline like icon"></i>
+                                  17 likes
+                                </span>
+                        <i class="comment icon"></i>
+                        4 comments
+                        <div class="ui comments">
+                            <div class="comment">
+                                <a class="avatar">
+                                    <img class="ui image avatar"  style='width: 35px; height: 35px;' src="https://fomantic-ui.com/images/avatar2/large/matthew.png">
+                                </a>
+                                <div class="content">
+                                    <a class="author">Matt</a>
+                                    <div class="metadata">
+                                        <span class="date">Today at 5:42PM</span>
+                                    </div>
+                                    <div class="text">
+                                        How artistic!
+                                    </div>
+                                    <div class="actions">
+                                        <a class="reply">Reply</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <a class="avatar">
+                                    <img class="ui image avatar"  style='width: 35px; height: 35px;' src="https://fomantic-ui.com/images/avatar2/large/elyse.png">
+                                </a>
+                                <div class="content">
+                                    <a class="author">Elliot Fu</a>
+                                    <div class="metadata">
+                                        <span class="date">Yesterday at 12:30AM</span>
+                                    </div>
+                                    <div class="text">
+                                        <p>This has been very useful for my research. Thanks as well!</p>
+                                    </div>
+                                    <div class="actions">
+                                        <a class="reply">Reply</a>
+                                    </div>
+                                </div>
+                                <div class="comments">
+                                    <div class="comment">
+                                        <a class="avatar">
+                                            <img class="ui image avatar"  style='width: 35px; height: 35px;' src="https://fomantic-ui.com/images/avatar2/large/molly.png">
+                                        </a>
+                                        <div class="content">
+                                            <a class="author">Jenny Hess</a>
+                                            <div class="metadata">
+                                                <span class="date">Just now</span>
+                                            </div>
+                                            <div class="text">
+                                                Elliot you are always so right :)
+                                            </div>
+                                            <div class="actions">
+                                                <a class="reply">Reply</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <a class="avatar">
+                                    <img class="ui image avatar" style='width: 35px; height: 35px;' src="https://fomantic-ui.com/images/avatar2/large/matthew.png">
+                                </a>
+                                <div class="content">
+                                    <a class="author">Joe Henderson</a>
+                                    <div class="metadata">
+                                        <span class="date">5 days ago</span>
+                                    </div>
+                                    <div class="text">
+                                        Dude, this is awesome. Thanks so much
+                                    </div>
+                                    <div class="actions">
+                                        <a class="reply">Reply</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <div class="ui large transparent left icon input">
+                            <i class="heart outline icon"></i>
+                            <input type="text" placeholder="Add Comment...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="three wide column"></div>
+</div>
+
+<%- include('./partials/chat') %>
+<%- include('./partials/footer') %>
+</div>
+</body>
+</body>
