@@ -27,42 +27,54 @@
                     <p style='font-size: 12px; margin-top: 2%'>Deixe sua imaginação fluir e interaja com seus amigos/família!</p>
                 </div>
                 <div class="eight wide column">
-                    <form class="ui segment form">    
+                    <form class="ui segment form" id="login">    
                         <div style='text-align: center; margin-bottom: 1%;'>
                         <h3>Entre</h3>
                         <p>Insira seus dados e aproveite!</p>
                         </div>
                         <div class="field">
-                          <input type="text" name="first-name" placeholder="Usuário">
+                          <input id='username_login' type="text" name="username" placeholder="Usuário">
                         </div>
                         <div class="field">
-                          <input type="text" name="last-name" placeholder="Senha">
+                          <input id='senha_login' type="password" name="senha" placeholder="Senha">
                         </div>
                         
                         <div style="display: flex; flex-direction: row;">
-                            <button class="ui button" type="submit" style='background-color: #5EB1BF; color: white'>Entrar</button>
+                            <button class="ui button" style='background-color: #5EB1BF; color: white'>Entrar</button>
                             <p style="font-size: 12px;width: 100%;margin: 3%;"><a href="/" style="color: #5EB1BF; margin-left: 1%; width: 100%;">Esqueceu a senha?</a></p>
-                          </div>
-                    </form>
-                      
-                      <form class="ui segment form">
+                        </div> 
+                    </form>     
+                    <div class="ui bottom attached negative message hidden" id='login_error'>
+                      <i class="icon exclamation"></i>
+                      <span id='message_login'></span>
+                    </div>
+
+                      <form class="ui segment form" id='register'>
                           <div style='text-align: center;'>
                             <h3>Sua primeira vez no Fake?</h3>
                             <p>Crie sua conta instantâneamente!</p>
                           </div>
-                        <div class="field" style='margin-top: 5%;'>
-                          <input type="text" name="first-name" placeholder="Nome">
-                        </div>
-                        <div class="field">
-                          <input type="text" name="last-name" placeholder="Sobrenome">
-                        </div>
+                          <div class='two fields' style='margin-top: 5%;'>
+                            <div class="field">
+                              <input type="text" name="first-name" placeholder="Nome">
+                            </div>
+                            <div class="field">
+                              <input type="text" name="last-name" placeholder="Sobrenome">
+                            </div>
+                          </div>
+                          <div class="field">
+                            <input type="text" id="username_register" placeholder="Usuário">
+                          </div>
+                          <div class="field">
+                            <input type="password" id="senha_register" placeholder="Senha">
+                          </div>
                           <p> Sua data de nascimento </p>
                           <div class="three fields">                        
                             <div class="field">
                                 <input type="number" name="dia" maxlength="2" placeholder="Dia">
                               </div>
                             <div class="field">
-                              <select class="ui fluid search dropdown" name="Montserrat">
+                              <select class="ui fluid search dropdown" name="mes">
                                 <option value="">Mês</option>
                                 <option value="1">Janeiro</option>
                                 <option value="2">Fevereiro</option>
@@ -85,34 +97,38 @@
                           <p> Seu gênero </p>
                           <div class='four inline fields'>
                             <div class="inline field">
-                                <div class="ui checkbox">
+                                <div class="ui checkbox" onclick="checkthis(this)">
                                   <input type="checkbox" tabindex="0" class="hidden">
                                 <label style="font-size: 12px; color: #999;"> Trans </label>
                                 </div>
                               </div>
                               <div class="inline field">
-                                <div class="ui checkbox">
+                                <div class="ui checkbox" onclick="checkthis(this)">
                                   <input type="checkbox" tabindex="0" class="hidden">
                                   <label style="font-size: 12px; color: #999;"> Mulher</label>
                                 </div>
                               </div>
                               <div class="inline field">
-                                <div class="ui checkbox">
+                                <div class="ui checkbox" onclick="checkthis(this)">
                                   <input type="checkbox" tabindex="0" class="hidden">
                                   <label style="font-size: 12px; color: #999;"> Homem </label>
                                 </div>
                               </div>
                               <div class="inline field">
-                                <div class="ui checkbox">
+                                <div class="ui checkbox" onclick="checkthis(this)">
                                   <input type="checkbox" tabindex="0" class="hidden">
                                   <label style="font-size: 12px; color: #999;"> Neutro </label>
                                 </div>
                               </div>
                           </div>
                           <div class='ui inline' style="margin-top: 3%;">
-                            <button class="ui button" type="submit" style='background-color: #5EB1BF; color: white; width: 100%;'>Criar</button>
+                            <button class="ui button" style='background-color: #5EB1BF; color: white; width: 100%;'>Criar</button>
                           </div>
                         </form>
+                        <div class="ui bottom attached message hidden" id='register_message'>
+                          <i class="icon exclamation"></i>
+                          <span id='message_register'></span>
+                        </div>
 
                     <div class='ui segment' style="text-align: center;">
                         <p>Criando sua conta você poderá usufruir de todos os nossos recursos</p>
@@ -127,4 +143,82 @@
 
       <%- include('./partials/footer') %>
     </div>
+    <script>
+      
+      function checkthis(elm) {
+        $('div.checkbox').children().prop('checked', false)
+        $(elm).children().prop('checked', true)
+      }
+
+      $(document).on('submit', 'form#login', function(e){
+        e.preventDefault();
+        $.ajax({
+          url: '/login',
+          method: 'post',
+          data: {
+            username: $('#username_login').val(),
+            senha: $('#senha_login').val()
+          }
+        }).then((result) => {
+          console.log(result)
+          if(result.user){
+            window.location.href = '/home/';
+          } else {
+            $('#login_error').removeClass('hidden')
+            $('span#message_login').html(result.error)
+          }
+        }).fail((msg) => {
+          console.log(msg)
+          $('#login_error').removeClass('hidden')
+          $('span#message_login').html('Não foi possível conectar-se')
+        })
+      })
+      $(document).on('submit', 'form#register', function(e){
+        e.preventDefault();
+        let d = $("input[name='dia']").val()
+        if(d < 0){
+          return alert('Não existem dias negativos...')
+        }
+        if(d > 31){
+          return alert('Não existem tantos dias num mês...')
+        }
+        if(d == ''){
+          return alert('Você precisa selecionar uma data')
+        }
+        let m = $("select[name='mes']").val()
+        if(m == ''){
+          return alert('Você precisa selecionar uma data')
+        }
+        let a = $("input[name='ano']").val()
+        if(a == ''){
+          return alert('Você precisa selecionar uma data')
+        }
+        let nascimento = new Date(a, m, d)
+        $.ajax({
+          url: '/register',
+          method: 'post',
+          data: {
+            nome: $("input[name='first-name']").val(),
+            sobrenome: $("input[name='last-name']").val(),
+            username: $("#username_register").val(),
+            senha: $("#senha_register").val(),
+            nascimento: nascimento,
+            genero: $("input[type='checkbox']:checked").parent().text()
+          }
+        }).then((result) => {
+          if(result.user){
+            window.location.href = '/home/';
+          } else {
+            $('#register_message').removeClass('hidden')
+            $('#register_message').addClass('warning')
+            $('span#message_register').html(result.error)
+            console.log('err')
+          }
+        }).fail((err) => {
+          $('#register_message').removeClass('hidden')
+          $('#register_message').addClass('negative')
+          $('span#message_register').html('Não foi possível conectar-se')
+        })
+      })
+    </script>
 </body>
