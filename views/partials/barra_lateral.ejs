@@ -1,28 +1,28 @@
 <div style="width: 31%;float: left;">
     <div class="ui vertical menu">
-        <a class="item" href="/perfil">
+        <a class="<%- active=='perfil'? 'active':''%> item" href="/perfil/<%- user.username %>">
             Meu perfil
-            <div class="ui label">1</div>
+            <div class="ui <%- active=='perfil'? 'teal left pointing':''%> label">!</div>
         </a>
-        <a class="active teal item" href="/home">
+        <a class="<%- active=='feed'? 'active':''%> teal item" href="/home">
             Feed
-            <div class="ui teal left pointing label">51</div>
+            <div class="ui <%- active=='feed'? 'teal left pointing':''%> label">!</div>
         </a>
-        <a class="item" href="/dm">
+        <a class="<%- active=='dm'? 'active':''%> item" href="/dm">
             Mensagens
-            <div class="ui label">1</div>
+            <div class="ui <%- active=='dm'? 'teal left pointing':''%> label">!</div>
         </a>
-        <a class="item" href="/amigos">
+        <a class="<%- active=='amigos'? 'active':''%> item" href="/amigos">
             Amigos
-            <div class="ui label">1</div>
+            <div class="ui <%- active=='amigos'? 'teal left pointing':''%> label">!</div>
         </a>
-        <a class="item" href="/comunidades">
+        <a class="<%- active=='comunidades'? 'active':''%> item" href="/comunidades">
             Comunidades
-            <div class="ui label">1</div>
+            <div class="ui <%- active=='comunidades'? 'teal left pointing':''%> label">!</div>
         </a>
-        <a class="item" href="/configs">
+        <a class="<%- active=='configs'? 'active':''%> item" href="/configs">
             Configurações
-            <div class="ui red label">2</div>
+            <div class="ui <%- active=='configs'? 'red left pointing':''%> label">!</div>
         </a>
     </div>
 </div>

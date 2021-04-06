@@ -42,4 +42,11 @@ routes.post('/busca', async(req, res) => {
     });
 })
 
+routes.post('/busca_posts', async(req, res) => {    
+    Posts.find({dono: { $regex: '.*' + req.body.user_name + '.*' }}, function (err, docs) {
+        if(err) console.log(err)
+        else res.send(docs)
+    });
+})
+
 module.exports = routes;

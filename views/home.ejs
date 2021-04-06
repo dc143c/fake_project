@@ -12,11 +12,11 @@
 </style>
 <body>
     <%- include('./partials/navbar') %>
-    <div class="ui grid" style="margin-top: 5%;">
+    <div class="ui grid" style="margin-top: 6%;">
         <div class="three wide column"></div>
         <div class="ui ten wide column">
             <div class='ui grid'>
-                <div class="eight wide column">
+                <div class="eight wide column" style="text-align: center;">
                     <h3>Olá, forasteiro!</h3>
                     <p style='font-size: 12px;'>Junte-se a milhares de usuários em todo o Brasil no RPG mais interativo de todos os tempos!</p>
                     <div style="display: flex;justify-content: center;height: 5%;width: 100%;">
@@ -177,21 +177,36 @@
         e.preventDefault();
         let d = $("input[name='dia']").val()
         if(d < 0){
-          return alert('Não existem dias negativos...')
+          $('#register_message').removeClass('hidden')
+          $('#register_message').addClass('negative')
+          $('span#message_register').html('Não existem dias negativos...')
+          return
         }
         if(d > 31){
-          return alert('Não existem tantos dias num mês...')
+          $('#register_message').removeClass('hidden')
+          $('#register_message').addClass('negative')
+          $('span#message_register').html('Não existem tantos dias num mês...')
+          return
         }
         if(d == ''){
-          return alert('Você precisa selecionar uma data')
+          $('#register_message').removeClass('hidden')
+          $('#register_message').addClass('negative')
+          $('span#message_register').html('Você precisa inserir um dia')
+          return
         }
         let m = $("select[name='mes']").val()
         if(m == ''){
-          return alert('Você precisa selecionar uma data')
+          $('#register_message').removeClass('hidden')
+          $('#register_message').addClass('negative')
+          $('span#message_register').html('Você precisa inserir um mês')
+          return
         }
         let a = $("input[name='ano']").val()
         if(a == ''){
-          return alert('Você precisa selecionar uma data')
+          $('#register_message').removeClass('hidden')
+          $('#register_message').addClass('negative')
+          $('span#message_register').html('Você precisa inserir um ano')
+          return
         }
         let nascimento = new Date(a, m, d)
         $.ajax({

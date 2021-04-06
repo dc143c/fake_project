@@ -29,5 +29,31 @@ module.exports = {
       if (error || response.statusCode != 200) return reject(error)
       return resolve(body)
     })
+  }),
+  buscaUser: (body) => new Promise((resolve, reject) => {
+    request({
+      timeout: defaultTimeout,
+      uri: `${basePath}/users/buscar`,
+      json: true,
+      method: 'POST',
+      body: body
+    }, (error, response, body) => {
+      console.log(error)
+      if (error || response.statusCode != 200) return reject(error)
+      return resolve(body)
+    })
+  }),
+  buscaPostsUser: (body) => new Promise((resolve, reject) => {
+    request({
+      timeout: defaultTimeout,
+      uri: `${basePath}/users/buscar_posts`,
+      json: true,
+      method: 'POST',
+      body: body
+    }, (error, response, body) => {
+      console.log(error)
+      if (error || response.statusCode != 200) return reject(error)
+      return resolve(body)
+    })
   })
 }

@@ -3,7 +3,7 @@
 <% include('./partials/header') %>
 <% include('./partials/chat') %>
 <%- include('./partials/header') %>
-<% include('./partials/barra_lateral') %>
+<% include('./partials/barra_lateral', {user:user, active: active}) %>
 <style>
     body {
         margin: 0;
@@ -14,7 +14,7 @@
 </style>
 <body>
 <%- include('./partials/navbar') %>
-<div class="ui grid" style="margin-top: 5%;">
+<div class="ui grid" style="margin-top: 6%;">
     <div class="three wide column"></div>
     <div class="ui ten wide column">
         <%- include('./partials/barra_lateral') %>
@@ -42,7 +42,7 @@
                             <i class="mobile alternate icon"></i> há 15 min
                         </div>
                         <div class="content">
-                            <div class="header" style="font-size: 18px">Matt Giampietro</div>
+                            <div class="header" style="font-size: 18px"><%- user.nome %> <%- user.sobrenome %></div>
                             <div class="meta">
                                 <a>Do you want to play a game?</a>
                             </div>
@@ -51,23 +51,23 @@
                                     <tbody>
                                     <tr>
                                         <td>Trabalho</td>
-                                        <td>Hospital Santa Cruz de Jesus</td>
+                                        <td><%- user.trabalho ? user.trabalho : '-' %></td>
                                     </tr>
                                     <tr>
                                         <td>Cidade</td>
-                                        <td>São Francisco</td>
+                                        <td><%- user.cidade ? user.cidade : '-' %></td>
                                     </tr>
                                     <tr>
                                         <td>Idade</td>
-                                        <td>27 anos</td>
+                                        <td><%- user.nascimento? user.nascimento : '-' %></td>
                                     </tr>
                                     <tr>
                                         <td>Raça</td>
-                                        <td>Humana</td>
+                                        <td><%- user.race ? user.race : '-' %></td>
                                     </tr>
                                     <tr>
                                         <td>Habilidades</td>
-                                        <td>Telepatia</td>
+                                        <td><%- user.habilidades ? user.habilidades : '-' %></td>
                                     </tr>
                                     <tr>
                                         <td>História</td>

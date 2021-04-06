@@ -15,7 +15,9 @@ app.use(express.static("public"));
 app.use(session({
     secret: '#C4tf1sh!',
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: false,
+    secure: true,
+    maxAge: null
 }));
 
 //Routes
