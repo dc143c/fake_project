@@ -16,6 +16,11 @@ router.get('/', function (req, res) {
     })
 })
 
+router.get('/logout', function (req, res) {
+    req.session.destroy();
+    res.redirect('/')
+});
+
 router.get('/home', function (req, res) {
     if(!req.session.user){
         return res.redirect('/')
@@ -86,6 +91,6 @@ router.get('/configs', function (req, res) {
     var user = req.session.user
     res.render('configs', {
         user: user,
-        active: 'comunidades'
+        active: 'configs'
     })
 })
