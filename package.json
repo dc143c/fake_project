@@ -26,9 +26,11 @@
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "fomantic-ui": "^2.8.7",
+    "googleapis": "^39.2.0",
     "gulp": "^4.0.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.3",
+    "pg": "^8.6.0",
     "request": "^2.88.2",
     "socket.io": "^4.0.1"
   },

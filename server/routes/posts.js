@@ -1,5 +1,4 @@
 const express = require('express');
-const Posts = require('../schemes/Posts');
 const routes = express.Router();
 
 routes.post('/cria_post', async (req,res) => {
