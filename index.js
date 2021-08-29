@@ -12,6 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", 'ejs');
 app.use(express.static("public"));
 
+
 app.use(session({
     secret: '#C4tf1sh!',
     resave: true,
@@ -30,3 +31,6 @@ app.listen(porta, function (err) {
     if (err) console.log(err);
     console.log("Online on Port = " + porta);
 });
+
+var server = require('http').createServer(app)
+var io = require('socket.io')(server)

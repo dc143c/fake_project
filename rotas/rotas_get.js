@@ -33,10 +33,10 @@ router.get('/home', function (req, res) {
 })
 
 router.get('/perfil/:username', async function (req, res) {
-    if(!req.session.user){
-        return res.render('home')
-    }
-    var user = req.session.user
+    let user = {}
+    if(req.session.user){
+        user = req.session.user
+    } 
     try{
         var infos = await middleware.buscaUser(req.params.username)
         var posts = await middleware.buscaPostsUser(req.params.username)
@@ -53,7 +53,7 @@ router.get('/perfil/:username', async function (req, res) {
 
 router.get('/dm', function (req, res) {
     if(!req.session.user){
-        return res.render('home')
+        return res.render('/')
     }
     var user = req.session.user
     res.render('mensagens', {
@@ -64,7 +64,7 @@ router.get('/dm', function (req, res) {
 
 router.get('/amigos', function (req, res) {
     if(!req.session.user){
-        return res.render('home')
+        return res.render('/')
     }
     var user = req.session.user
     res.render('amigos', {
@@ -75,7 +75,7 @@ router.get('/amigos', function (req, res) {
 
 router.get('/comunidades', function (req, res) {
     if(!req.session.user){
-        return res.render('home')
+        return res.render('/')
     }
     var user = req.session.user
     res.render('amigos', {
@@ -86,7 +86,7 @@ router.get('/comunidades', function (req, res) {
 
 router.get('/configs', function (req, res) {
     if(!req.session.user){
-        return res.render('home')
+        return res.render('/')
     }
     var user = req.session.user
     res.render('configs', {

@@ -5,10 +5,15 @@ const middleware = require('../middleware/middleware')
 
 router.post('/login', async (req, res) => {
     try{
-        let response = await middleware.postLogin(req.body)
-        req.session.user = response.user;
-        req.session.token = response.token;
-        res.send(response)
+        middleware.postLogin(req.body).then((response) => {
+            req.session.user = response.user;
+            req.session.token = response.token;
+            res.send(response)
+        }).catch((error) => {
+            console.log('error on login')
+            console.log(error)
+            res.status(400).send(error)
+        })
     } catch (error) {
         res.status(400).send(error)
     }

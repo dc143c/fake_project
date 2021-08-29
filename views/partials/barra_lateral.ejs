@@ -1,28 +1,38 @@
-<div style="width: 31%;float: left;">
-    <div class="ui vertical menu">
-        <a class="<%- active=='perfil'? 'active':''%> item" href="/perfil/<%- user.username %>">
-            Meu perfil
-            <div class="ui <%- active=='perfil'? 'teal left pointing':''%> label">!</div>
-        </a>
-        <a class="<%- active=='feed'? 'active':''%> teal item" href="/home">
-            Feed
-            <div class="ui <%- active=='feed'? 'teal left pointing':''%> label">!</div>
-        </a>
-        <a class="<%- active=='dm'? 'active':''%> item" href="/dm">
-            Mensagens
-            <div class="ui <%- active=='dm'? 'teal left pointing':''%> label">!</div>
-        </a>
-        <a class="<%- active=='amigos'? 'active':''%> item" href="/amigos">
-            Amigos
-            <div class="ui <%- active=='amigos'? 'teal left pointing':''%> label">!</div>
-        </a>
-        <a class="<%- active=='comunidades'? 'active':''%> item" href="/comunidades">
-            Comunidades
-            <div class="ui <%- active=='comunidades'? 'teal left pointing':''%> label">!</div>
-        </a>
-        <a class="<%- active=='configs'? 'active':''%> item" href="/configs">
-            Configurações
-            <div class="ui <%- active=='configs'? 'red left pointing':''%> label">!</div>
-        </a>
+<% if(user.username) {%> 
+    <div style="width: 31%;float: left;">
+        <div class="ui vertical menu">
+            <a class="<%- active=='perfil'? 'active':''%> item" href="/perfil/<%- user.username %>">
+                Meu perfil
+                <div class="ui <%- active=='perfil'? 'teal left pointing':''%> label">!</div>
+            </a>
+            <a class="<%- active=='feed'? 'active':''%> teal item" href="/home">
+                Feed
+                <div class="ui <%- active=='feed'? 'teal left pointing':''%> label">!</div>
+            </a>
+            <a class="<%- active=='dm'? 'active':''%> item" href="/dm">
+                Mensagens
+                <div class="ui <%- active=='dm'? 'teal left pointing':''%> label">!</div>
+            </a>
+            <a class="<%- active=='amigos'? 'active':''%> item" href="/amigos">
+                Amigos
+                <div class="ui <%- active=='amigos'? 'teal left pointing':''%> label">!</div>
+            </a>
+            <a class="<%- active=='comunidades'? 'active':''%> item" href="/comunidades">
+                Comunidades
+                <div class="ui <%- active=='comunidades'? 'teal left pointing':''%> label">!</div>
+            </a>
+            <a class="<%- active=='configs'? 'active':''%> item" href="/configs">
+                Configurações
+                <div class="ui <%- active=='configs'? 'red left pointing':''%> label">!</div>
+            </a>
+        </div>
     </div>
-</div>
+<%} else {%>
+    <div style="width: 31%;float: left;">
+        <div class='ui segment'>
+            <a style="text-decoration: none; color: #000; align-items: center; justify-content: center; display: flex; flex-direction: column;" class="item" href="/">
+                <div style="text-align: center; font-size: 11px; margin-bottom: 2%;">It's seems like you don't have an account!</div><div class='ui yellow button' style="text-align: center;"'>Sign-up</div><div style="text-align: center; font-size: 11px;">or</div><div class='ui teal button' style="text-align: center;">Login</div> <div class='description' style="text-align: center; margin-top: 2%; font-size: 11px;">to live a life like never before!</div> 
+            </a>
+        </div>
+    </div>
+<%}%>
