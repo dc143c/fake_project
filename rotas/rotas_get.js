@@ -51,11 +51,10 @@ router.get('/perfil/:username', async function (req, res) {
 
     let infos = await middleware.buscaUser({"username": req.params.username})
     var posts = await middleware.buscaPostsUser({"username": req.params.username})
-
     res.render('perfil', {
         user: user,
         infos: infos[0],
-        posts: posts[0],
+        posts_user: posts,
         active: 'perfil'
     })
 })

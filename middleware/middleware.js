@@ -63,5 +63,18 @@ module.exports = {
       if (error || response.statusCode != 200) return reject(error)
       return resolve(body)
     })
+  }),
+  
+  createPost: (body) => new Promise((resolve, reject) => {
+    request({
+      timeout: defaultTimeout,
+      uri: `${basePath}/users/cria_post`,
+      json: true,
+      method: 'POST',
+      body: body
+    }, (error, response, body) => {
+      if (error || response.statusCode != 200) return reject(error)
+      return resolve(body)
+    })
   })
 }

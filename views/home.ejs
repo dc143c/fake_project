@@ -160,16 +160,19 @@
             senha: $('#senha_login').val()
           }
         }).then((result) => {
+          setMsg('Success!', 'Bem vindo ao Projeto Fake!', '202', 8856)
           console.log(result)
           if(result.user){
             window.location.href = '/home/';
           } else {
             $('#login_error').removeClass('hidden')
+            setMsg('Error!', 'Hmm, aconteceu alguma coisa!', 'error', 8856)
             $('span#message_login').html(result.error)
           }
         }).fail((msg) => {
           console.log(msg)
           $('#login_error').removeClass('hidden')
+            setMsg('Error!', 'Hmm, aconteceu alguma coisa!', 'error', 8856)
           $('span#message_login').html('Não foi possível conectar-se')
         })
       })
@@ -221,9 +224,11 @@
             genero: $("input[type='checkbox']:checked").parent().text()
           }
         }).then((result) => {
+          setMsg('Success!', 'Bem vindo ao Projeto Fake!', '202', 3453)
           if(result.user){
             window.location.href = '/home/';
           } else {
+            setMsg('Oops', 'Hmm, aconteceu alguma coisa!', 'error', 3453)
             $('#register_message').removeClass('hidden')
             $('#register_message').addClass('warning')
             $('span#message_register').html(result.error)
@@ -232,6 +237,7 @@
         }).fail((err) => {
           $('#register_message').removeClass('hidden')
           $('#register_message').addClass('negative')
+          setMsg('Oops', 'Hmm, aconteceu alguma coisa!', 'error', 3453)
           $('span#message_register').html('Não foi possível conectar-se')
         })
       })

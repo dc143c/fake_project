@@ -59,7 +59,7 @@
                                         <% if(minutes === 0) {%> 
                                             <% display = 'Há alguns segundos' %>
                                         <%} else {%>
-                                            <% display = `Há ${minutes} minutos` %>
+                                            <% display = `Há ${minutes} min.` %>
                                         <%}%>
                                         <%- display %>
                                 <%}%>
@@ -76,7 +76,7 @@
                                         <% if(minutes === 0) {%> 
                                             <% display = 'Há alguns segundos' %>
                                         <%} else {%>
-                                            <% display = `Há ${minutes} minutos` %>
+                                            <% display = `Há ${minutes} min.` %>
                                         <%}%>
                                         <%- display %>
                                     <%}%>
@@ -121,7 +121,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="ui form" style="margin-bottom: 2%">
+                <div class="ui form" id='postMaker' style="margin-bottom: 2%">
                     <div class="ui field">
                         <div class="ui segments">
                             <div class="ui segment">
@@ -136,7 +136,7 @@
                                         <%- 'Anônimo' %>
                                     <%}%>
                                 </span>
-                                <button class='ui button' style='float:right; background-color: #0e7e79; color: white'>
+                                <button class='ui button' onclick="sendFormPost()" style='float:right; background-color: #0e7e79; color: white'>
                                     Enviar
                                 </button>
                             </div>
@@ -274,5 +274,33 @@
 <%- include('./partials/footer') %>
 </div>
 <script>
+    let user = <%- JSON.stringify(user) %>
+    let infos = <%- JSON.stringify(infos) %>
+    let posts = <%- JSON.stringify(posts_user) %>
+
+    $('#postMaker').on('submit', function(){
+        let dados = {}
+        dados.dono = infos.username
+        dados.descricao = $('#postMaker > .field > .segments > .segment > textarea').val()
+        dados.recebido_por = `${user.username ? user.username : 'anon'}`
+        $.ajax({
+            url: '/cria_post',
+            method: 'post',
+            data: dados
+        }).then((res) => {
+            setMsg('Success!', 'Your post was successfully created!', '202', 4534)
+            $('#postMaker > .field > .segments > .segment').removeClass('loading')
+        }).fail((err) => {
+            console.log(err)
+            setMsg('Oops!', 'Your post was not created!', 'error', 4534)
+            $('#postMaker > .field > .segments > .segment').removeClass('loading')
+        })
+    })
+
+    function sendFormPost() {
+        $('#postMaker > .field > .segments > .segment').addClass('loading')
+        $('#postMaker').trigger('submit')
+    }
+
 </script>
 </body>

@@ -43,4 +43,14 @@ router.post('/busca', async (req, res) => {
     })
 })
 
+router.post('/cria_post', async (req, res) => {
+    middleware.createPost(req.body).then((results) => {
+        res.send(results)
+    }).catch((error) => {
+        console.log('Erro na criação de postagem')
+        console.log(error)
+        res.status(400).send(error)
+    })
+})
+
 module.exports = router

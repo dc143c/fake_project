@@ -29,7 +29,7 @@ const PostSchema = new mongoose.Schema({
     },
     favoritado: {
         type: Boolean,
-        default: true
+        default: false
     },
     CreatedAt: {
         type: Date,

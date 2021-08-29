@@ -107,4 +107,22 @@ routes.post('/loginstatus', async(req, res) => {
     }    
 })
 
+routes.post('/cria_post', async (req,res) => {
+    console.log(req.body)
+    try { 
+        Post.create(req.body, function(err, data){
+            if(err){
+                console.log(err)
+                return res.status(200).send({error: 'Falha ao criar postagem.'});
+            } else {
+                res.send(data)
+            }
+        });
+    }
+    catch(err){
+        console.log(err)
+        return res.status(200).send({error: 'Falha ao criar postagem.'});
+    } 
+});
+
 module.exports = routes;

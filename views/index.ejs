@@ -5,25 +5,13 @@
 <%- include('./partials/header') %>
 <% include('./partials/barra_lateral') %>
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Montserrat', sans-serif;
-        background-color: #d4d4d4;
-    }
-    .clickable:hover {
-        cursor: pointer;
-        color: #00b5ad;
-    }
 </style>
 <body>
     <%- include('./partials/navbar') %>
     <div class="ui grid" style="margin-top: 6%;">
         <div class="three wide column"></div>
-        <div class="one wide column">
+        <div class="ten wide column grid">
             <%- include('./partials/barra_lateral') %>
-        </div>
-        <div class="nine wide column">
             <div style='width:68%;float: right;'>
                 <div class='ui' style="width: 100%;">
                     <div class="ui form" style="margin-bottom: 2%" id='criaPost'>
