@@ -28,7 +28,6 @@ const UserSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: true,
         minlength: 1,
         maxlength: 80,
     },
@@ -47,14 +46,15 @@ const UserSchema = new mongoose.Schema({
     race: {
         type: String,
     },
-    idade: {
-        type: Number,
-        required: true
+    status: {
+        type: String,
     },
     configs: {
         type: String,
     },
     habilidades: [],
+    amigos: [],
+    bloqueados: [],
     role: {
       type: String,
       default: 'user',
@@ -62,9 +62,9 @@ const UserSchema = new mongoose.Schema({
     configs: {
       type: String,
     },
-    status: {
+    online: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     disponibilidade: {
       type: Boolean,

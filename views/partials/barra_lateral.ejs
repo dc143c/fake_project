@@ -1,5 +1,6 @@
+<%({user:user, active: active})%>
 <% if(user.username) {%> 
-    <div style="width: 31%;float: left;">
+    <div style="float: left;">
         <div class="ui vertical menu">
             <a class="<%- active=='perfil'? 'active':''%> item" href="/perfil/<%- user.username %>">
                 Meu perfil

@@ -8,7 +8,13 @@ router.post('/login', async (req, res) => {
         middleware.postLogin(req.body).then((response) => {
             req.session.user = response.user;
             req.session.token = response.token;
-            res.send(response)
+            middleware.setLogged({user: req.session.user, tipo: 'in'}).then((respp) => {
+                res.send(response)
+            }).catch((error) => {
+                console.log('error on login status')
+                console.log(error)
+                res.status(400).send(error)
+            })
         }).catch((error) => {
             console.log('error on login')
             console.log(error)
@@ -26,6 +32,15 @@ router.post('/register', async (req, res) => {
     } catch (error) {
         res.status(400).send(error)
     }
+})
+
+router.post('/busca', async (req, res) => {
+    middleware.buscaUser(req.body).then((results) => {
+        res.send(results)
+    }).catch((error) => {
+        console.log('Erro na busca')
+        res.status(400).send(error)
+    })
 })
 
 module.exports = router

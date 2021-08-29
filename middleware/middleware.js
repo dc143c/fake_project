@@ -12,7 +12,6 @@ module.exports = {
       method: 'POST',
       body: body
     }, (error, response, body) => {
-      console.log(error)
       if (error || response.statusCode != 200) return reject(error)
       return resolve(body)
     })
@@ -25,7 +24,6 @@ module.exports = {
       method: 'POST',
       body: body
     }, (error, response, body) => {
-      console.log(error)
       if (error || response.statusCode != 200) return reject(error)
       return resolve(body)
     })
@@ -33,12 +31,11 @@ module.exports = {
   buscaUser: (body) => new Promise((resolve, reject) => {
     request({
       timeout: defaultTimeout,
-      uri: `${basePath}/users/buscar`,
+      uri: `${basePath}/users/busca`,
       json: true,
       method: 'POST',
       body: body
     }, (error, response, body) => {
-      console.log(error)
       if (error || response.statusCode != 200) return reject(error)
       return resolve(body)
     })
@@ -51,7 +48,18 @@ module.exports = {
       method: 'POST',
       body: body
     }, (error, response, body) => {
-      console.log(error)
+      if (error || response.statusCode != 200) return reject(error)
+      return resolve(body)
+    })
+  }),
+  setLogged: (body) => new Promise((resolve, reject) => {
+    request({
+      timeout: defaultTimeout,
+      uri: `${basePath}/users/loginstatus`,
+      json: true,
+      method: 'POST',
+      body: body
+    }, (error, response, body) => {
       if (error || response.statusCode != 200) return reject(error)
       return resolve(body)
     })

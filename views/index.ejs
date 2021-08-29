@@ -9,7 +9,7 @@
         margin: 0;
         padding: 0;
         font-family: 'Montserrat', sans-serif;
-        background-color: #f0f0f0;
+        background-color: #d4d4d4;
     }
     .clickable:hover {
         cursor: pointer;
@@ -20,20 +20,33 @@
     <%- include('./partials/navbar') %>
     <div class="ui grid" style="margin-top: 6%;">
         <div class="three wide column"></div>
-        <div class="ui ten wide column">
+        <div class="one wide column">
             <%- include('./partials/barra_lateral') %>
+        </div>
+        <div class="nine wide column">
             <div style='width:68%;float: right;'>
                 <div class='ui' style="width: 100%;">
-                    <div class='ui segment' style="padding: 2% 2% 10% 2%">
-                        <form class="ui form" id='criaPost'>
-                            <div class="field">
-                                <textarea cols='40' rows='4' placeholder="Quer contar algo pra galera?" style='width: 90%; height: 10%; resize: none;' id='bodyPost'></textarea>
-                                <img class="ui avatar image" style='width: 45px; height: 45px; margin-top: 1.5%; margin-right: 1.5%; float: left' src="https://semantic-ui.com/images/avatar2/large/kristy.png">
-                            </div>
-                            <button class='ui button' style='margin: 1% 0 5% 0;float:right; background-color:#00b5ad; color: white'>
-                                Enviar
-                            </button>
-                        </form>
+                    <div class="ui form" style="margin-bottom: 2%" id='criaPost'>
+                        <div class="ui field">
+                            <div class="ui segments">
+                                <div class="ui segment">
+                                    <textarea cols='40' rows='4' placeholder="Que tá rolando?" style="resize: none;"></textarea>
+                                </div>
+                                <div class="ui secondary segment">
+                                    <img class="ui avatar image" src="https://semantic-ui.com/images/avatar2/large/kristy.png">
+                                    <span class='subheader'>
+                                        <%if(user.username){%>
+                                            <%- user.nome %>
+                                        <%} else {%>
+                                            <%- 'Anônimo' %>
+                                        <%}%>
+                                    </span>
+                                    <button class='ui button' style='float:right; background-color: #0e7e79; color: white'>
+                                        Enviar
+                                    </button>
+                                </div>
+                                </div>
+                        </div>
                     </div>
                     <div class='ui segment' id='feed' style="background-color: transparent; border: 0; box-shadow: none;">
                     <div class='ui card' style="margin-top: 0; width: 100%">

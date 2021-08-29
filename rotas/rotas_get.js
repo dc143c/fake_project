@@ -9,23 +9,34 @@ router.get('/', function (req, res) {
         return res.redirect('/home')
     }
     
-    var user = req.session.user
+    let user = {}
+    if(req.session.user){
+        user = req.session.user
+    } 
+
     res.render('home', {
         user: user,
         active: 'feed'
     })
 })
 
-router.get('/logout', function (req, res) {
-    req.session.destroy();
-    res.redirect('/')
+router.get('/logout', async function (req, res) {
+    let user = req.session.user
+    middleware.setLogged({user: user, tipo: 'out'}).then((respp) => {
+        req.session.destroy();
+        res.redirect('/')
+    }).catch((error) => {
+        console.log('error on login status')
+        console.log(error)
+        res.status(400).send(error)
+    })
 });
 
 router.get('/home', function (req, res) {
     if(!req.session.user){
         return res.redirect('/')
     }
-    var user = req.session.user
+    let user = req.session.user
     res.render('index', {
         user: user,
         active: 'feed'
@@ -37,16 +48,14 @@ router.get('/perfil/:username', async function (req, res) {
     if(req.session.user){
         user = req.session.user
     } 
-    try{
-        var infos = await middleware.buscaUser(req.params.username)
-        var posts = await middleware.buscaPostsUser(req.params.username)
-    } catch (err) {
-        console.log(err)
-    }
+
+    let infos = await middleware.buscaUser({"username": req.params.username})
+    var posts = await middleware.buscaPostsUser({"username": req.params.username})
+
     res.render('perfil', {
         user: user,
-        infos: infos,
-        posts: posts,
+        infos: infos[0],
+        posts: posts[0],
         active: 'perfil'
     })
 })
